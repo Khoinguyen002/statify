@@ -1,0 +1,36 @@
+{
+  "name": "statify",
+  "version": "1.0.0",
+  "description": "Statify: A simple global state management solution for React.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build",
+    "lint": "eslint . --ext .ts,.tsx",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-username/statify.git"
+  },
+  "keywords": [
+    "react",
+    "state-management",
+    "global-state",
+    "typescript",
+    "hook"
+  ],
+  "author": "Khoi Nguyen",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.8.0 || ^17.0.0 || ^18.0.0"
+  },
+  "devDependencies": {
+    "@types/jest": "^29.5.14",
+    "@types/react": "^18.3.12",
+    "eslint": "^9.16.0",
+    "jest": "^29.7.0",
+    "typescript": "^5.7.2"
+  }
+}
