@@ -4,8 +4,9 @@ import {
   AtomState,
   NestedKeyOf,
   PathValue,
+  PublicAtom,
 } from "../state-management/atom.type";
-import { Atom } from "../state-management/createAtom";
+import { toAtom } from "../state-management/createAtom";
 import { event } from "../state-management/atom.events";
 
 type ReturnValue<A extends AtomState, P extends NestedKeyOf<A>> = PathValue<
@@ -21,7 +22,7 @@ const useAtomSelector = <
   atom,
   props,
 }: {
-  atom: Atom<K, A>;
+  atom: PublicAtom<K, A>;
   props: P;
 }): ReturnValue<A, P> => {
   const [selectedState, setSelectedState] = useState<ReturnValue<A, P>>(
@@ -35,7 +36,7 @@ const useAtomSelector = <
       setSelectedState(atom.getCloneDeep(props));
     };
     event.addEventListener(eventName, handleOnEventEmitter);
-    atom.addWatchingPaths(props);
+    toAtom(atom).addWatchingPaths(props);
     return () => {
       event.removeEventListener(eventName, handleOnEventEmitter);
     };
