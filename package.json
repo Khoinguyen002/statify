@@ -1,6 +1,6 @@
 {
   "name": "reactjs-statify",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Statify: A simple global state management solution for React.js",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
